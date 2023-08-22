@@ -1,0 +1,15 @@
+tags: 13.2-php82-apache
+13.2-php82-apache.arch: amd64
+13.2-php82-apache.name: "dasherr"
+13.2-php82-apache.timestamp.amd64: 1692722188
+13.2-php82-apache.sum.amd64: bf6568caeb56081f06d8a78398df901dd9e14d2a3e478b5c4f9b4c3fe87392c6
+13.2-php82-apache.size.amd64: 64928348
+13.2-php82-apache.source.amd64: "https://drive.google.com/uc?export=download&id=10vf6W8yDOmFqmNBDOrcnSDNmaTS99g15"
+
+tags+: 13.2-php82-fpm
+13.2-php82-fpm.arch: amd64
+13.2-php82-fpm.name: "dasherr"
+13.2-php82-fpm.timestamp.amd64: 1692722668
+13.2-php82-fpm.sum.amd64: 088a92b1fe89408045b50c6cc25566fd3447281b88190c11f90f0ad11e5ec1e9
+13.2-php82-fpm.size.amd64: 25690452
+13.2-php82-fpm.source.amd64: "https://drive.google.com/uc?export=download&id=10yC9XIw0PzukYzEmAm34ytMKp4Jz3ERF"
