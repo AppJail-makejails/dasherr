@@ -33,7 +33,7 @@ appjail cmd jexec dasherr chown www:www /usr/local/www/apache24/data/settings.js
 
 ### Arguments
 
-* `dasherr_tag` (default: `13.2-apache`): see [#tags](#tags).
+* `dasherr_tag` (default: `13.2-php81-apache`): see [#tags](#tags).
 
 ## How to build the Image
 
