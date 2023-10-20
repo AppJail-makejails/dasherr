@@ -1,5 +1,5 @@
 INCLUDE options/options.makejail
 
-ARG dasherr_tag=13.2-php82-apache
+ARG dasherr_tag=13.2-php81-apache
 
 FROM --entrypoint gh+AppJail-makejails/dasherr dasherr:${dasherr_tag}

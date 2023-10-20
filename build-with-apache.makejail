@@ -1,7 +1,5 @@
 INCLUDE gh+AppJail-makejails/apache
-INCLUDE download-dasherr.makejail
+INCLUDE install-dasherr.makejail
 
 CMD rm -rf /usr/local/www/apache24/data/*
-CMD tar -C /usr/local/www/apache24/data --strip-components=1 -xf /tmp/dasherr.zip
-CMD rm -f /tmp/dasherr.zip
-CMD chown -R www:www /usr/local/www/apache24/data
+CMD cp -a /usr/local/www/dasherr/ /usr/local/www/apache24/data

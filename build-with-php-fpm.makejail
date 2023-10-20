@@ -1,7 +1,2 @@
 INCLUDE gh+AppJail-makejails/php
-INCLUDE download-dasherr.makejail
-
-CMD mkdir -p /usr/local/www/dasherr
-CMD tar -C /usr/local/www/dasherr --strip-components=1 -xf /tmp/dasherr.zip
-CMD rm -f /tmp/dasherr.zip
-CMD chown -R www:www /usr/local/www/dasherr
+INCLUDE install-dasherr.makejail

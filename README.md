@@ -45,7 +45,7 @@ appjail makejail \
     -f "gh+AppJail-makejails/dasherr --file build-with-apache.makejail" \
     -o virtualnet=":dasherr default" \
     -o nat -- \
-        --apache_tag 13.2-php82
+        --apache_tag 13.2-php81
 ```
 
 ### FPM
@@ -56,7 +56,7 @@ appjail makejail \
     -f "gh+AppJail-makejails/dasherr --file build-with-php-fpm.makejail" \
     -o virtualnet=":dasherr default" \
     -o nat -- \
-        --php_tag 13.2-82 --php_use_fpm 1
+        --php_tag 13.2-81 --php_use_fpm 1
 ```
 
 ### Build
@@ -70,13 +70,9 @@ appjail cmd local dasherr vi etc/rc.conf
 appjail image export dasherr
 ```
 
-### Arguments
-
-* `dasherr_version` (default: `1.05.00`).
-
 ## Tags
 
-| Tag                 | Arch    | Version           | Type   | `dasherr_version` |
-| ------------------- | ------- | ----------------- | ------ | ----------------- |
-| `13.2-php82-apache` | `amd64` | `13.2-RELEASE-p4` | `thin` |     `1.05.00`     |
-| `13.2-php82-fpm`    | `amd64` | `13.2-RELEASE-p4` | `thin` |     `1.05.00`     |
+| Tag                 | Arch    | Version           | Type   |
+| ------------------- | ------- | ----------------- | ------ |
+| `13.2-php81-apache` | `amd64` | `13.2-RELEASE-p4` | `thin` |
+| `13.2-php81-fpm`    | `amd64` | `13.2-RELEASE-p4` | `thin` |
