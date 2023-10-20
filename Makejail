@@ -1,5 +1,19 @@
 INCLUDE options/options.makejail
 
+# .ini
+ARG dasherr_php_type=production
+# Tag
 ARG dasherr_tag=13.2-php81-apache
 
 FROM --entrypoint gh+AppJail-makejails/dasherr dasherr:${dasherr_tag}
+
+RAW if appjail cmd jexec "${APPJAIL_JAILNAME}" [ -d "/usr/local/www/apache24/data" ]; then
+	RAW case "${dasherr_php_type}" in
+	RAW 	development|production) ;;
+	RAW 	*) echo "VALID TYPES: development, production"; exit 1
+	RAW esac
+
+	# This symlink is only created for apache as php-fpm Makejail already has
+	# this feature.
+	CMD ln -s /usr/local/etc/php.ini-${dasherr_php_type} /usr/local/etc/php.ini
+RAW fi
