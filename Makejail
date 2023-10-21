@@ -16,4 +16,6 @@ RAW if appjail cmd jexec "${APPJAIL_JAILNAME}" [ -d "/usr/local/www/apache24/dat
 	# This symlink is only created for apache as php-fpm Makejail already has
 	# this feature.
 	CMD ln -s /usr/local/etc/php.ini-${dasherr_php_type} /usr/local/etc/php.ini
+
+	SERVICE apache24 restart
 RAW fi
