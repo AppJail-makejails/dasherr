@@ -36,41 +36,6 @@ appjail cmd jexec dasherr chown www:www /usr/local/www/apache24/data/settings.js
 * `dasherr_tag` (default: `13.2-php81-apache`): see [#tags](#tags).
 * `dasherr_php_type` (default: `production`) The PHP configuration file to link to `/usr/local/etc/php.ini`. Valid values: `development`, `production`. Only valid for apache, use the `php_type` argument when using php-fpm.
 
-## How to build the Image
-
-### Apache
-
-```sh
-appjail makejail \
-    -j dasherr \
-    -f "gh+AppJail-makejails/dasherr --file build-with-apache.makejail" \
-    -o virtualnet=":dasherr default" \
-    -o nat -- \
-        --apache_tag 13.2-php81
-```
-
-### FPM
-
-```sh
-appjail makejail \
-    -j dasherr \
-    -f "gh+AppJail-makejails/dasherr --file build-with-php-fpm.makejail" \
-    -o virtualnet=":dasherr default" \
-    -o nat -- \
-        --php_tag 13.2-81 --php_use_fpm 1
-```
-
-### Build
-
-```sh
-appjail stop dasherr
-appjail cmd local dasherr sh -c "rm -f var/log/*"
-appjail cmd local dasherr sh -c "rm -f var/cache/pkg/*"
-appjail cmd local dasherr sh -c "rm -f var/run/*"
-appjail cmd local dasherr vi etc/rc.conf
-appjail image export dasherr
-```
-
 ## Tags
 
 | Tag                 | Arch    | Version        | Type   |
