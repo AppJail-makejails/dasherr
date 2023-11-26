@@ -73,7 +73,9 @@ appjail image export dasherr
 
 ## Tags
 
-| Tag                 | Arch    | Version           | Type   |
-| ------------------- | ------- | ----------------- | ------ |
+| Tag                 | Arch    | Version        | Type   |
+| ------------------- | ------- | -------------- | ------ |
 | `13.2-php81-apache` | `amd64` | `13.2-RELEASE` | `thin` |
 | `13.2-php81-fpm`    | `amd64` | `13.2-RELEASE` | `thin` |
+| `14.0-php81-apache` | `amd64` | `14.0-RELEASE` | `thin` |
+| `14.0-php81-fpm`    | `amd64` | `14.0-RELEASE` | `thin` |
