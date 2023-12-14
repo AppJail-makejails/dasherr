@@ -1,0 +1,1 @@
+OPTION volume=dasherr-settings mountpoint:usr/local/www/dasherr/settings.json owner:80 group:80
