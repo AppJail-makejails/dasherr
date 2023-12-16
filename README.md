@@ -36,6 +36,24 @@ appjail cmd jexec dasherr chown www:www /usr/local/www/apache24/data/settings.js
 * `dasherr_tag` (default: `13.2-php81-apache`): see [#tags](#tags).
 * `dasherr_php_type` (default: `production`) The PHP configuration file to link to `/usr/local/etc/php.ini`. Valid values: `development`, `production`. Only valid for apache, use the `php_type` argument when using php-fpm.
 
+### Volumes
+
+#### Apache
+
+| Name                    | owner | group | perm | type | mountpoint                                   |
+| ----------------------- | ----- | ----- | ---- | ---- | -------------------------------------------- |
+| adminerevo-plugins-file |   -   |   -   |  -   |  -   | usr/local/www/apache24/data/plugins.php      |
+| adminerevo-plugins      |   -   |   -   |  -   |  -   | /usr/local/www/apache24/data/plugins         |
+| adminerevo-drivers      |   -   |   -   |  -   |  -   | /usr/local/www/apache24/data/plugins/drivers |
+
+#### FPM
+
+| Name                    | owner | group | perm | type | mountpoint                                |
+| ----------------------- | ----- | ----- | ---- | ---- | ----------------------------------------- |
+| adminerevo-plugins-file |   -   |   -   |  -   |  -   | usr/local/www/adminerevo/plugins.php      |
+| adminerevo-plugins      |   -   |   -   |  -   |  -   | /usr/local/www/adminerevo/plugins         |
+| adminerevo-drivers      |   -   |   -   |  -   |  -   | /usr/local/www/adminerevo/plugins/drivers |
+
 ## Tags
 
 | Tag                 | Arch    | Version        | Type   |
