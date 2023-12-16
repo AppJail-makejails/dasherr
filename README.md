@@ -40,7 +40,7 @@ appjail cmd jexec dasherr chown www:www /usr/local/www/apache24/data/settings.js
 
 #### Apache
 
-| Name                    | owner | group | perm | type | mountpoint                                   |
+| Name                    | Owner | Group | Perm | Type | Mountpoint                                   |
 | ----------------------- | ----- | ----- | ---- | ---- | -------------------------------------------- |
 | adminerevo-plugins-file |   -   |   -   |  -   |  -   | usr/local/www/apache24/data/plugins.php      |
 | adminerevo-plugins      |   -   |   -   |  -   |  -   | /usr/local/www/apache24/data/plugins         |
@@ -48,7 +48,7 @@ appjail cmd jexec dasherr chown www:www /usr/local/www/apache24/data/settings.js
 
 #### FPM
 
-| Name                    | owner | group | perm | type | mountpoint                                |
+| Name                    | Owner | Group | Perm | Type | Mountpoint                                |
 | ----------------------- | ----- | ----- | ---- | ---- | ----------------------------------------- |
 | adminerevo-plugins-file |   -   |   -   |  -   |  -   | usr/local/www/adminerevo/plugins.php      |
 | adminerevo-plugins      |   -   |   -   |  -   |  -   | /usr/local/www/adminerevo/plugins         |
