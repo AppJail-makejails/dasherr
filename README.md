@@ -40,19 +40,15 @@ appjail cmd jexec dasherr chown www:www /usr/local/www/apache24/data/settings.js
 
 #### Apache
 
-| Name                    | Owner | Group | Perm | Type | Mountpoint                                   |
-| ----------------------- | ----- | ----- | ---- | ---- | -------------------------------------------- |
-| adminerevo-plugins-file |   -   |   -   |  -   |  -   | usr/local/www/apache24/data/plugins.php      |
-| adminerevo-plugins      |   -   |   -   |  -   |  -   | /usr/local/www/apache24/data/plugins         |
-| adminerevo-drivers      |   -   |   -   |  -   |  -   | /usr/local/www/apache24/data/plugins/drivers |
+| Name             | Owner | Group | Perm | Type | Mountpoint                              |
+| ---------------- | ----- | ----- | ---- | ---- | --------------------------------------- |
+| dasherr-settings |  80   |   80  |  -   |  -   | usr/local/www/apache24/data/plugins.php |
 
 #### FPM
 
-| Name                    | Owner | Group | Perm | Type | Mountpoint                                |
-| ----------------------- | ----- | ----- | ---- | ---- | ----------------------------------------- |
-| adminerevo-plugins-file |   -   |   -   |  -   |  -   | usr/local/www/adminerevo/plugins.php      |
-| adminerevo-plugins      |   -   |   -   |  -   |  -   | /usr/local/www/adminerevo/plugins         |
-| adminerevo-drivers      |   -   |   -   |  -   |  -   | /usr/local/www/adminerevo/plugins/drivers |
+| Name             | Owner | Group | Perm | Type | Mountpoint                          |
+| ---------------- | ----- | ----- | ---- | ---- | ----------------------------------- |
+| dasherr-settings |  80   |   80  |  -   |  -   | usr/local/www/dasherr/settings.json |
 
 ## Tags
 
