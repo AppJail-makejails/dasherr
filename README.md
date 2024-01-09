@@ -33,7 +33,7 @@ appjail cmd jexec dasherr chown www:www /usr/local/www/apache24/data/settings.js
 
 ### Arguments
 
-* `dasherr_tag` (default: `13.2-php81-apache`): see [#tags](#tags).
+* `dasherr_tag` (default: `13.2-php82-apache`): see [#tags](#tags).
 * `dasherr_php_type` (default: `production`) The PHP configuration file to link to `/usr/local/etc/php.ini`. Valid values: `development`, `production`. Only valid for apache, use the `php_type` argument when using php-fpm.
 
 ### Volumes
@@ -54,7 +54,7 @@ appjail cmd jexec dasherr chown www:www /usr/local/www/apache24/data/settings.js
 
 | Tag                 | Arch    | Version        | Type   |
 | ------------------- | ------- | -------------- | ------ |
-| `13.2-php81-apache` | `amd64` | `13.2-RELEASE` | `thin` |
-| `13.2-php81-fpm`    | `amd64` | `13.2-RELEASE` | `thin` |
-| `14.0-php81-apache` | `amd64` | `14.0-RELEASE` | `thin` |
-| `14.0-php81-fpm`    | `amd64` | `14.0-RELEASE` | `thin` |
+| `13.2-php82-apache` | `amd64` | `13.2-RELEASE` | `thin` |
+| `13.2-php82-fpm`    | `amd64` | `13.2-RELEASE` | `thin` |
+| `14.0-php82-apache` | `amd64` | `14.0-RELEASE` | `thin` |
+| `14.0-php82-fpm`    | `amd64` | `14.0-RELEASE` | `thin` |
