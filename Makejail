@@ -3,7 +3,7 @@ INCLUDE options/options.makejail
 # .ini
 ARG dasherr_php_type=production
 # Tag
-ARG dasherr_tag=13.2-php81-apache
+ARG dasherr_tag=13.3-php81-apache
 
 FROM --entrypoint gh+AppJail-makejails/dasherr dasherr:${dasherr_tag}
 
