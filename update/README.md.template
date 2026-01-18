@@ -56,5 +56,5 @@ appjail cmd jexec dasherr chown www:www /usr/local/www/apache24/data/settings.js
 | ------------------- | ------- | -------------- | ------ |
 | `%%TAG1%%-php%%PHP_TAG%%-apache` | `amd64` | `%%TAG1%%-RELEASE` | `thin` |
 | `%%TAG1%%-php%%PHP_TAG%%-fpm`    | `amd64` | `%%TAG1%%-RELEASE` | `thin` |
-| `%%TAG2%%-php%%PHP_TAG%%-apache` | `amd64` | `%%TAG2%%-RELEASE` | `thin` |
-| `%%TAG2%%-php%%PHP_TAG%%-fpm`    | `amd64` | `%%TAG2%%-RELEASE` | `thin` |
+| `%%TAG2%%-php%%PHP_TAG%%-apache` | `amd64` | `%%TAG2%%` | `thin` |
+| `%%TAG2%%-php%%PHP_TAG%%-fpm`    | `amd64` | `%%TAG2%%` | `thin` |

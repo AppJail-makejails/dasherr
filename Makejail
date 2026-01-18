@@ -5,7 +5,7 @@ ARG dasherr_php_type=production
 # ajspec
 ARG dasherr_ajspec=gh+AppJail-makejails/dasherr
 # Tag
-ARG dasherr_tag=13.5-php82-apache
+ARG dasherr_tag=14.3-php82-apache
 
 FROM --entrypoint "${dasherr_ajspec}" dasherr:${dasherr_tag}
 
