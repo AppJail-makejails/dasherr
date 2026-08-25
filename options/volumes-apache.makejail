@@ -1,1 +1,0 @@
-OPTION volume=dasherr-settings mountpoint:usr/local/www/apache24/data/settings.json owner:80 group:80

@@ -1,0 +1,45 @@
+ARG FREEBSD_RELEASE
+ARG PHPVER
+
+FROM ghcr.io/appjail-makejails/php:${FREEBSD_RELEASE}-${PHPVER}
+
+ARG NO_PKGCLEAN
+
+LABEL org.opencontainers.image.title="Dasherr" \
+    org.opencontainers.image.description="Minimal and lightweight dashboard for your self-hosted services (and bookmarks)" \
+    org.opencontainers.image.source="https://github.com/AppJail-makejails/dasherr" \
+    org.opencontainers.image.url="https://github.com/AppJail-makejails/dasherr" \
+    org.opencontainers.image.vendor="DtxdF" \
+    org.opencontainers.image.authors="Jesús Daniel Colmenares Oviedo <dtxdf@disroot.org>"
+
+ARG PHPVER
+
+RUN set -xe; \
+    \
+    umask 0022; \
+    \
+    pkg update; \
+    pkg install dasherr; \
+    \
+    if [ -z "${NO_PKGCLEAN}" ]; then \
+        pkg clean -a; \
+        rm -rf /var/cache/pkg/*; \
+    fi; \
+    rm -rf /var/db/pkg/repos/*; \
+    \
+    php_version=`php -r 'echo PHP_VERSION;' | sed -Ee 's/^([0-9]+)\.([0-9]+)\.[0-9]+$/\1\2/'`; \
+    \
+    if [ "${php_version}" != "${PHPVER}" ]; then \
+        echo "Installed PHP version is different from what expected ( ${php_version} != ${PHPVER} )"; \
+        exit 1; \
+    fi
+
+RUN set -xe; \
+    \
+    umask 0022; \
+    \
+    mv /usr/local/www/dasherr /usr/local/www/html
+
+WORKDIR /usr/local/www/html
+
+ENV PHP_USE_FPM=1

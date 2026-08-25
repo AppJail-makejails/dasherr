@@ -1,6 +1,0 @@
-INCLUDE gh+AppJail-makejails/apache
-INCLUDE options/volumes-apache.makejail
-INCLUDE install-dasherr.makejail
-
-CMD rm -rf /usr/local/www/apache24/data/*
-CMD cp -a /usr/local/www/dasherr/ /usr/local/www/apache24/data

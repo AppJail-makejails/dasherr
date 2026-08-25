@@ -1,3 +1,0 @@
-INCLUDE gh+AppJail-makejails/php
-INCLUDE options/volumes-fpm.makejail
-INCLUDE install-dasherr.makejail

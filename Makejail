@@ -1,23 +1,6 @@
-INCLUDE options/options.makejail
+ARG dasherr_from=ghcr.io/appjail-makejails/dasherr
+ARG dasherr_tag=latest
 
-# .ini
-ARG dasherr_php_type=production
-# ajspec
-ARG dasherr_ajspec=gh+AppJail-makejails/dasherr
-# Tag
-ARG dasherr_tag=14.3-php82-apache
-
-FROM --entrypoint "${dasherr_ajspec}" dasherr:${dasherr_tag}
-
-RAW if appjail cmd jexec "${APPJAIL_JAILNAME}" [ -d "/usr/local/www/apache24/data" ]; then
-	RAW case "${dasherr_php_type}" in
-	RAW 	development|production) ;;
-	RAW 	*) echo "VALID TYPES: development, production"; exit 1
-	RAW esac
-
-	# This symlink is only created for apache as php-fpm Makejail already has
-	# this feature.
-	CMD ln -s /usr/local/etc/php.ini-${dasherr_php_type} /usr/local/etc/php.ini
-
-	SERVICE apache24 restart
-RAW fi
+OPTION container=boot
+OPTION overwrite=force
+OPTION from=${dasherr_from}:${dasherr_tag}

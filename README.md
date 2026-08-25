@@ -1,8 +1,8 @@
 # Dasherr
 
-A Minimal and lightweight dashboard for your self-hosted services (and bookmarks).
+Dasherr is a minimal and lightweight dashboard for your self-hosted services (and bookmarks).
 
-## Features:
+Features:
 
 * Loads instantly + Remains light on resources
 * Responsive design (uses Bootstrap framework)
@@ -14,47 +14,52 @@ A Minimal and lightweight dashboard for your self-hosted services (and bookmarks
 * All settings in a single easy to edit json file, with **built-in editor**
 * Support for alternate configurations without needing multiple Dasherr installations
 
-<img src="https://raw.githubusercontent.com/erohtar/Dasherr/main/www/res/favicon.svg" width="30%" height="auto">
-
 github.com/erohtar/Dasherr
+
+<img src="https://raw.githubusercontent.com/erohtar/Dasherr/main/www/res/favicon.svg" width="30%" height="auto" alt="Dasherr logo">
 
 ## How to use this Makejail
 
-```sh
-appjail makejail \
-    -j dasherr \
-    -f gh+AppJail-makejails/dasherr \
-    -o virtualnet=":dasherr default" \
+```console
+$ appjail oci run -Pd \
+    -o overwrite=force \
+    -o virtualnet=":<random> default" \
     -o nat \
-    -o expose=80
-appjail cmd local dasherr cp $PWD/settings.json usr/local/www/apache24/data/settings.json
-appjail cmd jexec dasherr chown www:www /usr/local/www/apache24/data/settings.json
+    -o fstab="/path/to/your/config.json /usr/local/www/html/settings.json" \
+    ghcr.io/appjail-makejails/dasherr dasherr
 ```
 
-### Arguments
+### Arguments (stage: build)
 
-* `dasherr_tag` (default: `14.3-php82-apache`): see [#tags](#tags).
-* `dasherr_php_type` (default: `production`) The PHP configuration file to link to `/usr/local/etc/php.ini`. Valid values: `development`, `production`. Only valid for apache, use the `php_type` argument when using php-fpm.
+* `dasherr_from` (default: `ghcr.io/appjail-makejails/dasherr`): Location of OCI image. See also [OCI Configuration](#oci-configuration).
+* `dasherr_tag` (default: `latest`): OCI image tag. See also [OCI Configuration](#oci-configuration).
 
-### Volumes
+### Environment (OCI image)
 
-#### Apache
+* `PGID` (default: `1000`): Equivalent to `PUID` but for the Process Group ID.
+* `PUID` (default: `1000`): Process User ID for the container's main process, allowing you to match the owner of files written to mounted host volumes to your host system's user. Writable volumes are changed based on this environment variable.
+* `UMASK` (default: `0022`): Override default umask setting.
 
-| Name             | Owner | Group | Perm | Type | Mountpoint                              |
-| ---------------- | ----- | ----- | ---- | ---- | --------------------------------------- |
-| dasherr-settings |  80   |   80  |  -   |  -   | usr/local/www/apache24/data/plugins.php |
+## OCI Configuration
 
-#### FPM
-
-| Name             | Owner | Group | Perm | Type | Mountpoint                          |
-| ---------------- | ----- | ----- | ---- | ---- | ----------------------------------- |
-| dasherr-settings |  80   |   80  |  -   |  -   | usr/local/www/dasherr/settings.json |
-
-## Tags
-
-| Tag                 | Arch    | Version        | Type   |
-| ------------------- | ------- | -------------- | ------ |
-| `14.3-php82-apache` | `amd64` | `14.3-RELEASE` | `thin` |
-| `14.3-php82-fpm`    | `amd64` | `14.3-RELEASE` | `thin` |
-| `15-php82-apache` | `amd64` | `15` | `thin` |
-| `15-php82-fpm`    | `amd64` | `15` | `thin` |
+```yaml
+build:
+  variants:
+    - tag: 15.1-apache
+      containerfile: Containerfile.apache
+      aliases: ["latest"]
+      default: true
+      args:
+        FREEBSD_RELEASE: "15.1"
+        APACHEVER: "24"
+        PHPVER: "84"
+        NO_PKGCLEAN: "1"
+      cache_dirs: ["pkgcache0:/var/cache/pkg"]
+    - tag: 15.1-fpm
+      containerfile: Containerfile.fpm
+      args:
+        FREEBSD_RELEASE: "15.1"
+        PHPVER: "84"
+        NO_PKGCLEAN: "1"
+      cache_dirs: ["pkgcache0:/var/cache/pkg"]
+```
